@@ -82,6 +82,39 @@ export class WebmunkChatGPTContentSpider extends WebmunkContentSpider {
         }, 2000)
 
         return
+      } else if (window.location.href.toLowerCase().startsWith('https://chatgpt.com/c/')) {
+        let conversation = []
+
+        $('article').each((index, item) => {
+          if ($(item).attr('data-turn') === 'user') {
+            $(item).find('div.whitespace-pre-wrap').each((turnIndex, turn) => {
+              conversation.push({
+                speaker: 'user',
+                content: $(turn).text(),
+              })
+            })
+          } else if ($(item).attr('data-turn') === 'assistant') {
+            $(item).find('div[data-message-author-role="assistant"]').each((turnIndex, turn) => {
+              const htmlContent = $(turn).find('div.prose').html()
+
+              conversation.push({
+                speaker: 'ChatGPT',
+                model: $(turn).attr('data-message-model-slug'),
+                content: htmlContent
+              })
+            })
+          }
+        })
+
+        chrome.runtime.sendMessage({
+          messageType: 'spiderResults',
+          spiderName: this.name(),
+          payload: {
+            conversation
+          }
+        })
+
+        return
       }
 
     }, 1000)
