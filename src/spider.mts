@@ -38,6 +38,8 @@ export class WebmunkChatGPTContentSpider extends WebmunkContentSpider {
     console.log(`[${this.name()}]: fetchResults... ${window.location.href}`)
 
     if (window.location.href.toLowerCase() === 'https://chatgpt.com/#checkLogin') {
+      console.log(`[${this.name()}]: CHECKING LOGIN...`)
+
       if ($('button[data-testid="login-button"]').length > 0) { // Logged in...
         console.log(`[${this.name()}]: Sending needs login...`)
         chrome.runtime.sendMessage({
