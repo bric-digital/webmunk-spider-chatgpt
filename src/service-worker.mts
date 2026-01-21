@@ -10,7 +10,7 @@ export class WebmunkChatGPTSpider extends WebmunkSpider {
   }
 
   loginUrl(): string {
-    return 'https://chatgpt.com/'
+    return 'https://chatgpt.com/#checkLogin'
   }
 
   fetchInitialUrls(): string[] {
