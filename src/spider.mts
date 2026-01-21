@@ -38,7 +38,7 @@ export class WebmunkChatGPTContentSpider extends WebmunkContentSpider {
     window.setTimeout(() => {
       console.log(`[${this.name()}]: fetchResults... ${window.location.href.toLowerCase()}`)
 
-      if (window.location.href.toLowerCase() === 'https://chatgpt.com/#checkLogin') {
+      if (window.location.href.toLowerCase() === 'https://chatgpt.com/#checklogin') {
         console.log(`[${this.name()}]: CHECKING LOGIN...`)
 
         if ($('button[data-testid="login-button"]').length > 0) { // Logged in...
