@@ -1,7 +1,7 @@
 {
-    "name": "@bric/webmunk-spider-perplexity",
+    "name": "@bric/webmunk-spider-chatgpt",
     "version": "0.0.1",
-    "description": "Perplexity plugin for Webmunk spider module.",
+    "description": "ChatGPT plugin for Webmunk spider module.",
     "keywords": [
         "extension",
         "webmunk"
@@ -9,13 +9,13 @@
     "author": "Behavioral Research Innovation Center",
     "type": "module",
     "main": "index.mts",
-    "homepage": "https://github.com/bric-digital/webmunk-spider-perplexity",
+    "homepage": "https://github.com/bric-digital/webmunk-spider-chatgpt",
     "bugs": {
-        "url": "https://github.com/bric-digital/webmunk-spider-perplexity/issues"
+        "url": "https://github.com/bric-digital/webmunk-spider-chatgpt/issues"
     },
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/bric-digital/webmunk-spider-perplexity.git"
+        "url": "git+https://github.com/bric-digital/webmunk-spider-chatgpt.git"
     },
     "exports": {
         "./extension": "./src/extension.mts",
