@@ -28,15 +28,15 @@ export class WebmunkChatGPTContentSpider extends WebmunkContentSpider {
   }
 
   fetchResults() {
-    const response = {
-      spiderName: 'ChatGPT',
-      results: [],
-      urls: [],
-      loggedIn: false
-    }
+    // const response = {
+    //   spiderName: 'ChatGPT',
+    //   results: [],
+    //   urls: [],
+    //   loggedIn: false
+    // }
 
     if (window.location.href.toLowerCase() === 'https://chatgpt.com/') {
-      if ($('button[data-testid="login-button"]').length > 0) {
+      if ($('button[data-testid="login-button"]').length == 0) {
         response.loggedIn = true
 
         chrome.runtime.sendMessage({
