@@ -62,7 +62,7 @@ export class WebmunkChatGPTContentSpider extends WebmunkContentSpider {
         let urls = []
 
         window.setTimeout(() => {
-          $('div#history a').each((index, item) => {
+          $('a').each((index, item) => {
             const href = $(item).attr('href')
 
             console.log(`${this.name()}: checking ${href}...`)
