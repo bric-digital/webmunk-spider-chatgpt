@@ -7,6 +7,10 @@ export class WebmunkChatGPTContentSpider extends WebmunkContentSpider {
     return 'WebmunkChatGPTContentSpider'
   }
 
+  name():string {
+    return 'ChatGPT'
+  }
+
   urlMatches(url:string): boolean {
     if (window.location.href.toLowerCase() === 'https://chatgpt.com/') {
       return true // Login check page
@@ -32,14 +36,26 @@ export class WebmunkChatGPTContentSpider extends WebmunkContentSpider {
     }
 
     if (window.location.href.toLowerCase() === 'https://chatgpt.com/') {
-      // Library page
-    } else if (window.location.href.toLowerCase().startsWith('https://chatgpt.com/')) {
-      // Conversation page
-    } else if (window.location.href.toLowerCase() === 'https://chatgpt.com/') {
-      if ($('div.group/sidebar button div:trimmedTextEquals("Account")').length > 0) {
+      if ($('button[data-testid="login-button"]').length > 0) {
         response.loggedIn = true
+
+        chrome.runtime.sendMessage({
+          messageType: 'spiderResults',
+          spiderName: this.name(),
+          loggedIn: true.
+        })
+
+        return
       }
     }
+
+    // } else if (window.location.href.toLowerCase().startsWith('https://chatgpt.com/')) {
+    //   // Conversation page
+    // } else if (window.location.href.toLowerCase() === 'https://chatgpt.com/') {
+    //   if ($('div.group/sidebar button div:trimmedTextEquals("Account")').length > 0) {
+    //     response.loggedIn = true
+    //   }
+    // }
   }
 }
 
