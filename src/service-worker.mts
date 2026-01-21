@@ -12,6 +12,10 @@ export class WebmunkChatGPTSpider extends WebmunkSpider {
   loginUrl(): string {
     return 'https://chatgpt.com/'
   }
+
+  fetchInitialUrls(): string[] {
+    return ['https://chatgpt.com/']
+  }
 }
 
 const stringToId = function (str:string) {
