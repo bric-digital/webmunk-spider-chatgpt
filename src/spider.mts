@@ -42,7 +42,7 @@ export class WebmunkChatGPTContentSpider extends WebmunkContentSpider {
         chrome.runtime.sendMessage({
           messageType: 'spiderResults',
           spiderName: this.name(),
-          loggedIn: true.
+          loggedIn: true
         })
 
         return
