@@ -55,24 +55,23 @@ export class WebmunkChatGPTContentSpider extends WebmunkContentSpider {
       }
       return
     } else if (window.location.href.toLowerCase() === 'https://chatgpt.com/') {
-        let urls = []
+      let urls = []
 
-        $('div#history a').each((index, item) => {
-          const href = $(item).attr('href')
+      $('div#history a').each((index, item) => {
+        const href = $(item).attr('href')
 
-          if (href.startsWith('/c/')) {
-            urls.push(`https://chatgpt.com${href}`)
-          }
-        })
+        if (href.startsWith('/c/')) {
+          urls.push(`https://chatgpt.com${href}`)
+        }
+      })
 
-        chrome.runtime.sendMessage({
-          messageType: 'spiderSources',
-          spiderName: this.name(),
-          urls
-        })
+      chrome.runtime.sendMessage({
+        messageType: 'spiderSources',
+        spiderName: this.name(),
+        urls
+      })
 
-        return
-      }
+      return
     }
 
     // } else if (window.location.href.toLowerCase().startsWith('https://chatgpt.com/')) {
